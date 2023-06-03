@@ -38,7 +38,7 @@ def send_email(reset_code, email, id, passowrd):
 def send_verification_email(email, id):
     url = f"{home_url}/auth/verifyuser?id={id}"
     message = (
-        "Thank You for registering to Steve's Restaurants, "
+        "Thank You for registering to Wehsi Scheduler, "
         "Please verify your email address to continue"
     )
     button_text = "Click to verify"
