@@ -30,3 +30,20 @@ class EventListView(generics.ListCreateAPIView):
         queryset = self.get_queryset()
         serializer = EventSerializer(queryset, many=True)
         return Response(serializer.data)
+
+
+class EventDetailView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request, pk):
+        try:
+            event = Event.objects.get(pk=pk)
+            serializer = EventSerializer(event)
+            response_data = {
+                "event": serializer.data,
+            }
+            return Response(response_data, status=status.HTTP_200_OK)
+        except Event.DoesNotExist:
+            return Response(
+                {"detail": "Event not found"}, status=status.HTTP_404_NOT_FOUND
+            )
