@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 
 from apps.Event.models import Event
 from apps.Registration.models import Registration
-from apps.Registration.serializers import RegistrationSerializer
+from apps.Registration.serializers import RegistrationSerializer, RegistrationDetailSerializer
 
 
 class RegistrationCreateView(APIView):
@@ -34,7 +34,7 @@ class RegistrationCreateView(APIView):
 
 
 class UserRegistrationListAPIView(generics.ListAPIView):
-    serializer_class = RegistrationSerializer
+    serializer_class = RegistrationDetailSerializer
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
