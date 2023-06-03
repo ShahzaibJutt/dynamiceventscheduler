@@ -48,3 +48,39 @@ class EventDetailView(APIView):
             return Response(
                 {"detail": "Event not found"}, status=status.HTTP_404_NOT_FOUND
             )
+
+class EventUpdateView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def put(self, request, pk):
+        try:
+            event = Event.objects.get(pk=pk)
+            serializer = EventSerializer(event, data=request.data)
+            serializer.is_valid(raise_exception=True)
+            serializer.save()
+            response_data = {
+                "message": "Event Updated Successfully",
+                "id": event.pk,
+            }
+            return Response(response_data, status=status.HTTP_200_OK)
+        except Event.DoesNotExist:
+            return Response(
+                {"detail": "Event not found"}, status=status.HTTP_404_NOT_FOUND
+            )
+
+
+class EventDeleteView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def delete(self, request, pk):
+        try:
+            event = Event.objects.get(pk=pk)
+            event.delete()
+            response_data = {
+                "message": "Event Deleted Successfully",
+            }
+            return Response(response_data, status=status.HTTP_204_NO_CONTENT)
+        except Event.DoesNotExist:
+            return Response(
+                {"detail": "Event not found"}, status=status.HTTP_404_NOT_FOUND
+            )
