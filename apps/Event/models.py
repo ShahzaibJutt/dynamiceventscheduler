@@ -1,5 +1,7 @@
 from django.db import models
+
 from config import settings
+
 
 # Create your models here.
 class Event(models.Model):
@@ -11,3 +13,4 @@ class Event(models.Model):
     description = models.TextField(null=True, blank=True)
     event_location = models.CharField(max_length=255)
     date = models.DateTimeField()
+    image_url = models.CharField(max_length=255)
