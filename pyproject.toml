@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "eventschedulerbackend"
+version = "0.1.0"
+description = ""
+authors = ["shahzaibjutt <shahzaibrocks9@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^4.2.1"
+python-dotenv = "^1.0.0"
+djangorestframework = "^3.14.0"
+djangorestframework-simplejwt = "^5.2.2"
+psycopg2-binary = "^2.9.6"
+six = "^1.16.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
