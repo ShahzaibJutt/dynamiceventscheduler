@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 home_url = os.getenv("SERVER_URL")
 html_tmp_path = "email/email.html"
-sender = "admin@orangestorage.com"
+sender = "shahzaibrocks9@gmail.com"
 
 
 def send_client_email(msg_title, msg_html, sender, recipients):

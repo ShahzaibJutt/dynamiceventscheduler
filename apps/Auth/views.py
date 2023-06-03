@@ -72,7 +72,6 @@ class Register(APIView):
         first_name = request.data.get("first_name", None)
         last_name = request.data.get("last_name", None)
         phone_number = request.data.get("phone_number", None)
-        is_owner = request.data.get("is_owner", False)
         if email is None or password is None:
             return Response(
                 {"msg": EMAIL_PASSWORD_REQUIRED},
@@ -106,7 +105,6 @@ class Register(APIView):
                 first_name=first_name,
                 last_name=last_name,
                 phone_number=phone_number,
-                is_owner=is_owner,
             )
             user.set_password(password)
             user.save()
@@ -336,7 +334,6 @@ class UpdateUser(APIView):
         first_name = request.data.get("first_name", None)
         last_name = request.data.get("last_name", None)
         phone_number = request.data.get("phone_number", None)
-        is_owner = request.data.get("is_owner", False)
 
         try:
             user = User.objects.get(id=user_id)
@@ -365,8 +362,6 @@ class UpdateUser(APIView):
             user.last_name = last_name
         if phone_number:
             user.phone_number = phone_number
-        if is_owner is not None:
-            user.is_owner = is_owner
 
         user.save()
 
