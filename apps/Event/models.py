@@ -12,5 +12,5 @@ class Event(models.Model):
     )
     description = models.TextField(null=True, blank=True)
     event_location = models.CharField(max_length=255)
-    date = models.DateTimeField()
+    date = models.DateField()
     image_url = models.CharField(max_length=255)

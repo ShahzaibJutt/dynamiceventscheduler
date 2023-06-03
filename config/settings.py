@@ -52,6 +52,7 @@ INSTALLED_APPS = [
 
     'apps.Auth',
     'apps.Event',
+    'apps.Registration'
 ]
 
 MIDDLEWARE = [
