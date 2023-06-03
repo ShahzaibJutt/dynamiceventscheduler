@@ -49,6 +49,7 @@ class EventDetailView(APIView):
                 {"detail": "Event not found"}, status=status.HTTP_404_NOT_FOUND
             )
 
+
 class EventUpdateView(APIView):
     permission_classes = [IsAuthenticated]
 
