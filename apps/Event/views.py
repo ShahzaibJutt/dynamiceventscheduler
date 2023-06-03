@@ -15,7 +15,8 @@ class EventCreateView(APIView):
         serializer.is_valid(raise_exception=True)
         event = serializer.save(creater=self.request.user)
         response_data = {
-            "message": "Event Created Successfully"
+            "message": "Event Created Successfully",
+            "id": event.pk,
         }
         return Response(response_data, status=status.HTTP_201_CREATED)
 
